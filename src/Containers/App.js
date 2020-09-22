@@ -28,7 +28,7 @@ function App() {
     },
     {
       name: "Saturation",
-      property: "saturation",
+      property: "saturate",
       value: 100,
       range: {
         min: 0,
@@ -89,10 +89,15 @@ function App() {
       });
     });
   };
-
+  const getImageStyle = () => {
+    const filters = Options.map((option) => {
+      return `${option.property}(${option.value}${option.units})`;
+    });
+    return { filter: filters.join(" ") };
+  };
   return (
     <div className={classes.mainContainer}>
-      <EditingImage></EditingImage>
+      <EditingImage style={getImageStyle()}></EditingImage>
       <SideToolbar
         ActiveOptionIndex={ActiveOptionIndex}
         options={Options}

@@ -10,7 +10,7 @@ const Slider = (props) => {
         min={props.min}
         max={props.max}
         value={props.value}
-        onChange={props.onChage}
+        onChange={props.handlerChange}
       ></input>
     </div>
   );

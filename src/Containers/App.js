@@ -84,7 +84,8 @@ function App() {
   const SliderChangeHandler = ({ target }) => {
     setOptions((prevOptions) => {
       return prevOptions.map((option, index) => {
-        if (index !== SelectedOption) return option;
+        if (index !== ActiveOptionIndex) return option;
+
         return { ...option, value: target.value };
       });
     });

@@ -28,7 +28,7 @@ body {
 }
 .sideToolbar {
   grid-area: sidebar;
-  background-color: purple;
+  background-color: rgb(189, 38, 189);
 }
 .SliderContainer {
   grid-area: slider;

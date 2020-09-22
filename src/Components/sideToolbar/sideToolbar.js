@@ -1,13 +1,89 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../../Styling/App.module.css";
 import SideToolbarItem from "./sideToolbarItem";
 
 const SideToolbar = () => {
+  const DefaultOptions = [
+    {
+      name: "Brightness",
+      property: "brightness",
+      value: 100,
+      range: {
+        min: 0,
+        max: 200,
+      },
+      units: "%",
+    },
+    {
+      name: "Contrast",
+      property: "contrast",
+      value: 100,
+      range: {
+        min: 0,
+        max: 200,
+      },
+      units: "%",
+    },
+    {
+      name: "Saturation",
+      property: "saturation",
+      value: 100,
+      range: {
+        min: 0,
+        max: 200,
+      },
+      units: "%",
+    },
+    {
+      name: "Grayscale",
+      property: "grayscale",
+      value: 0,
+      range: {
+        min: 0,
+        max: 100,
+      },
+      units: "%",
+    },
+    {
+      name: "Sepia",
+      property: "sepia",
+      value: 0,
+      range: {
+        min: 0,
+        max: 100,
+      },
+      units: "%",
+    },
+    {
+      name: "Hue Rotate",
+      property: "hue-rotate",
+      value: 0,
+      range: {
+        min: 0,
+        max: 360,
+      },
+      units: "deg",
+    },
+    {
+      name: "Blur",
+      property: "blur",
+      value: 0,
+      range: {
+        min: 0,
+        max: 20,
+      },
+      units: "px",
+    },
+  ];
+
+  const [Options, setOptions] = useState(DefaultOptions);
   return (
     <div className={classes.sideToolbar}>
-      <SideToolbarItem></SideToolbarItem>
-      <SideToolbarItem></SideToolbarItem>
-      <SideToolbarItem></SideToolbarItem>
+      {Options.map((option, index) => {
+        return (
+          <SideToolbarItem key={index} name={option.name}></SideToolbarItem>
+        );
+      })}
     </div>
   );
 };

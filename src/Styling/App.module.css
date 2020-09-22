@@ -53,7 +53,14 @@ body {
   position: relative;
   transition: background-color 150ms;
 }
-.sideToolbarItem.active {
+.sideToolbarItemActive {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.884);
+  position: relative;
+  transition: background-color 150ms;
   background-color: rgb(65, 60, 138);
 }
 .sideToolbarItem:hover,

@@ -1,90 +1,24 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
 import classes from "../../Styling/App.module.css";
 import SideToolbarItem from "./sideToolbarItem";
 
-const SideToolbar = () => {
-  const DefaultOptions = [
-    {
-      name: "Brightness",
-      property: "brightness",
-      value: 100,
-      range: {
-        min: 0,
-        max: 200,
-      },
-      units: "%",
+const SideToolbar = (props) => {
+  const handleInputChange = useCallback(
+    (index) => {
+      props.onChange(index);
     },
-    {
-      name: "Contrast",
-      property: "contrast",
-      value: 100,
-      range: {
-        min: 0,
-        max: 200,
-      },
-      units: "%",
-    },
-    {
-      name: "Saturation",
-      property: "saturation",
-      value: 100,
-      range: {
-        min: 0,
-        max: 200,
-      },
-      units: "%",
-    },
-    {
-      name: "Grayscale",
-      property: "grayscale",
-      value: 0,
-      range: {
-        min: 0,
-        max: 100,
-      },
-      units: "%",
-    },
-    {
-      name: "Sepia",
-      property: "sepia",
-      value: 0,
-      range: {
-        min: 0,
-        max: 100,
-      },
-      units: "%",
-    },
-    {
-      name: "Hue Rotate",
-      property: "hue-rotate",
-      value: 0,
-      range: {
-        min: 0,
-        max: 360,
-      },
-      units: "deg",
-    },
-    {
-      name: "Blur",
-      property: "blur",
-      value: 0,
-      range: {
-        min: 0,
-        max: 20,
-      },
-      units: "px",
-    },
-  ];
-
-  const [ActiveOptionIndex, setActiveOptionIndex] = useState(0);
-  const [Options, setOptions] = useState(DefaultOptions);
-  const SelectedOptionIndex = Options[ActiveOptionIndex];
-
+    [props.onChange]
+  );
   return (
     <div className={classes.sideToolbar}>
-      {Options.map((option, index) => {
+      {props.options.map((option, index) => {
         return (
-          <SideToolbarItem key={index} name={option.name}></SideToolbarItem>
+          <SideToolbarItem
+            key={index}
+            active={index === props.ActiveOptionIndex}
+            name={option.name}
+            handleClick={() => handleInputChange(index)}
+          ></SideToolbarItem>
         );
       })}
     </div>

@@ -1,10 +1,17 @@
 import React from "react";
 import classes from "../../Styling/App.module.css";
 
-const Slider = () => {
+const Slider = (props) => {
   return (
     <div className={classes.SliderContainer}>
-      <input type="range" className={classes.Slider}></input>
+      <input
+        type="range"
+        className={classes.Slider}
+        min={props.min}
+        max={props.max}
+        value={props.value}
+        onChange={props.onChage}
+      ></input>
     </div>
   );
 };

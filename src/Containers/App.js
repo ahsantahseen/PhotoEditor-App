@@ -3,6 +3,7 @@ import classes from "../Styling/App.module.css";
 import Slider from "../Components/Slider/Slider";
 import SideToolbar from "../Components/sideToolbar/sideToolbar";
 import EditingImage from "../Components/editingImage/editingImage";
+import Footerbar from "../Components/footerbar/footerbar";
 
 function App() {
   const DefaultOptions = [
@@ -110,6 +111,7 @@ function App() {
         value={SelectedOption.value}
         handlerChange={SliderChangeHandler}
       ></Slider>
+      <Footerbar></Footerbar>
     </div>
   );
 }

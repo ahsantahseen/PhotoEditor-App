@@ -7,7 +7,7 @@ const SideToolbar = (props) => {
     (index) => {
       props.onChange(index);
     },
-    [props.onChange]
+    [props]
   );
   return (
     <div className={classes.sideToolbar}>

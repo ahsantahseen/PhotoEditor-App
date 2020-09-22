@@ -65,7 +65,7 @@ body {
 }
 .sideToolbarItem:hover,
 .sideToolbarItem:focus {
-  background-color: rgb(65, 60, 138);
+  background-color: rgba(65, 60, 138, 0.651);
 }
 .sideToolbarItem::after {
   content: " ";
@@ -75,4 +75,43 @@ body {
   bottom: 0;
   height: 1px;
   background-color: rgb(44, 35, 139);
+}
+.footerbar {
+  display: flex;
+  position: relative;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 45px;
+  background-color: rgb(103, 98, 167);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+h1,
+h2 {
+  padding: 10px each;
+}
+.footerbar-content {
+  flex: 1;
+}
+@media (max-width: 1200px) {
+  .footerbar {
+    display: flex;
+    position: relative;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 45px;
+
+    background-color: rgb(103, 98, 167);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  .footerbar-content {
+    flex: 1;
+  }
 }

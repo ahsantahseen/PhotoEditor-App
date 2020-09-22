@@ -76,7 +76,10 @@ const SideToolbar = () => {
     },
   ];
 
+  const [ActiveOptionIndex, setActiveOptionIndex] = useState(0);
   const [Options, setOptions] = useState(DefaultOptions);
+  const SelectedOptionIndex = Options[ActiveOptionIndex];
+
   return (
     <div className={classes.sideToolbar}>
       {Options.map((option, index) => {

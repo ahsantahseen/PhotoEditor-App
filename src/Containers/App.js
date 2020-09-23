@@ -101,7 +101,7 @@ function App() {
       alert("Please Select A File ");
     }
   };
-
+  
   const getImageStyle = () => {
     const filters = Options.map((option) => {
       return `${option.property}(${option.value}${option.units})`;

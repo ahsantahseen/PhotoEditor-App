@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from ".././../Styling/App.module.css";
 
 const EditingImage = (props) => {

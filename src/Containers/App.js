@@ -81,6 +81,7 @@ function App() {
 
   const [ActiveOptionIndex, setActiveOptionIndex] = useState(0);
   const [Options, setOptions] = useState(DefaultOptions);
+  const [currentImage, setcurrentImage] = useState();
   const SelectedOption = Options[ActiveOptionIndex];
   const SliderChangeHandler = ({ target }) => {
     setOptions((prevOptions) => {
@@ -91,6 +92,16 @@ function App() {
       });
     });
   };
+
+  const fileSelectedHandler = (event) => {
+    if (event.target.files.length === 1) {
+      setcurrentImage(URL.createObjectURL(event.target.files[0]));
+      console.log(currentImage);
+    } else {
+      alert("Please Select A File ");
+    }
+  };
+
   const getImageStyle = () => {
     const filters = Options.map((option) => {
       return `${option.property}(${option.value}${option.units})`;
@@ -99,12 +110,26 @@ function App() {
   };
   return (
     <div className={classes.mainContainer}>
-      <EditingImage style={getImageStyle()}></EditingImage>
+      <EditingImage
+        style={getImageStyle()}
+        source={currentImage}
+      ></EditingImage>
       <SideToolbar
         ActiveOptionIndex={ActiveOptionIndex}
         options={Options}
         onChange={setActiveOptionIndex}
-      ></SideToolbar>
+      >
+        <label className={classes.filebutton}>
+          <span className={classes.uploadClass}>
+            <input
+              className={classes.uploadClass}
+              type="file"
+              onChange={fileSelectedHandler}
+              onClick={fileSelectedHandler}
+            ></input>
+          </span>
+        </label>
+      </SideToolbar>
       <Slider
         min={SelectedOption.range.min}
         max={SelectedOption.range.max}

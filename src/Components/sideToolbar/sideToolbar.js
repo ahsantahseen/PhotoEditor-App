@@ -11,6 +11,7 @@ const SideToolbar = (props) => {
   );
   return (
     <div className={classes.sideToolbar}>
+      {props.children}
       {props.options.map((option, index) => {
         return (
           <SideToolbarItem

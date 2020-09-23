@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from ".././../Styling/App.module.css";
 
 const EditingImage = (props) => {
-  return <div className={classes.editingImage} style={props.style}></div>;
+  return (
+    <div
+      className={classes.editingImage}
+      style={{ ...props.style, backgroundImage: `url(${props.source})` }}
+    ></div>
+  );
 };
 
 export default EditingImage;

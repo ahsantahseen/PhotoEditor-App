@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "../Styling/App.module.css";
 import Slider from "../Components/Slider/Slider";
 import SideToolbar from "../Components/sideToolbar/sideToolbar";
@@ -78,11 +78,11 @@ function App() {
       units: "px",
     },
   ];
-
   const [ActiveOptionIndex, setActiveOptionIndex] = useState(0);
   const [Options, setOptions] = useState(DefaultOptions);
   const [currentImage, setcurrentImage] = useState();
   const SelectedOption = Options[ActiveOptionIndex];
+
   const SliderChangeHandler = ({ target }) => {
     setOptions((prevOptions) => {
       return prevOptions.map((option, index) => {
@@ -98,10 +98,10 @@ function App() {
       setcurrentImage(URL.createObjectURL(event.target.files[0]));
       console.log(currentImage);
     } else {
-      alert("Please Select A File ");
+      alert("Please Select An Image ");
     }
   };
-  
+
   const getImageStyle = () => {
     const filters = Options.map((option) => {
       return `${option.property}(${option.value}${option.units})`;
@@ -119,7 +119,7 @@ function App() {
         options={Options}
         onChange={setActiveOptionIndex}
       >
-        <label className={classes.filebutton}>
+        <label className={classes.filebutton} style={{ cursor: "pointer" }}>
           <span className={classes.uploadClass}>
             <input
               className={classes.uploadClass}

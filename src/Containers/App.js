@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classes from "../Styling/App.module.css";
 import Slider from "../Components/Slider/Slider";
 import SideToolbar from "../Components/sideToolbar/sideToolbar";

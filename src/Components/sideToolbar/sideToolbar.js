@@ -22,6 +22,7 @@ const SideToolbar = (props) => {
           ></SideToolbarItem>
         );
       })}
+      <p style={{ padding: "10px" }}>Photo Filter 1.0</p>
     </div>
   );
 };

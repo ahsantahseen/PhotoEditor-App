@@ -5,6 +5,7 @@ import SideToolbar from "../Components/sideToolbar/sideToolbar";
 import EditingImage from "../Components/editingImage/editingImage";
 import Footerbar from "../Components/footerbar/footerbar";
 
+
 function App() {
   const DefaultOptions = [
     {
@@ -127,7 +128,7 @@ function App() {
               onChange={fileSelectedHandler}
               onClick={fileSelectedHandler}
             ></input>
-          </span>
+          </span> 
         </label>
       </SideToolbar>
       <Slider
@@ -137,6 +138,7 @@ function App() {
         handlerChange={SliderChangeHandler}
       ></Slider>
       <Footerbar></Footerbar>
+      
     </div>
   );
 }
